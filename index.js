@@ -4,7 +4,7 @@ const app = express();
 const port = 3000;
 
 app.use(express.static('public'));
-app.use(express.json());
+app.use(express.json({limit: '1mb'}));
 app.use(express.urlencoded({extended: false}));
 
 app.get('/', function (req, res) {
