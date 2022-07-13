@@ -60,6 +60,41 @@ function setup() {
             document.getElementById('weather').textContent = weather;
             document.getElementById('temp').textContent = temp;
 
+
+
+
+            const aq_url = `https://api.openaq.org/v2/latest?coordinates=${lat},${lon}`;
+            const aq_response = await fetch(aq_url);
+            const aq_data = await aq_response.json();
+
+
+
+
+            air = aq_data.results[0].measurements[0];
+
+            document.getElementById('aq_parameter').textContent = air.parameter;
+            document.getElementById('aq_value').textContent = air.value;
+            document.getElementById('aq_units').textContent = air.unit;
+            document.getElementById('aq_date').textContent = air.lastUpdated;
+
+
+
+
+
+            const data = {lat, lon, city_name, weather, temp , air}; //, name, image64};
+            const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json' 
+            },
+            body: JSON.stringify(data)
+    
+            };
+            console.log(options)
+            const response = await fetch('/api', options);
+            const db_val = await response.json();
+            console.log(db_val);
+
         });
     }
 }
