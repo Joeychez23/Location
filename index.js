@@ -1,11 +1,13 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 //const Datastore = require('nedb');
 const port = 3000;
 
 app.use(express.static('public'));
-app.use(express.json({limit: '1mb'}));
-app.use(express.urlencoded({extended: false}));
+//app.use(express.json({limit: '1mb'}));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
