@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
-    req.send(db);
+    //req.send(db);
 });
 //app.get('/css/index.css', function (req, res) {
     //res.sendFile(__dirname + '/css/index.css');
