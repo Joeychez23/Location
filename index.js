@@ -8,7 +8,7 @@ app.use(express.static('public'));
 //app.use(express.json({limit: '1mb'}));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
-
+console.log(db);
 //const database = new Datastore('database.db');
 //database.loadDatabase();
 
