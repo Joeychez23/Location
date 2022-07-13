@@ -121,7 +121,7 @@ function setup() {
                 //console.log(options)
                 const response = await fetch('/api', options);
                 const db_val = await response.json();
-                console.log(db_val);
+                //console.log(db_val);
             }
             //console.log(position);
             //const nameStr = document.getElementById('nameBox');
