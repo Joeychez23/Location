@@ -8,19 +8,33 @@ app.use(express.static('public'));
 //app.use(express.json({limit: '1mb'}));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
-console.log(db);
+/*app.get('/', (req, res) => {
+    db.query("SELECT = FROM data", (err, result) => {
+        if (err) {
+            console.log(err);
+        }
+
+        res.send(result);
+    })
+})*/
 //const database = new Datastore('database.db');
 //database.loadDatabase();
 
 app.get('/', function (req, res) {
-    res.sendFile(__dirname + '/index.html');
-    //req.send(db);
+    //res.sendFile(__dirname + '/index.html');
+    res.send("Hello World");
 });
 //app.get('/css/index.css', function (req, res) {
     //res.sendFile(__dirname + '/css/index.css');
 //});
 
-app.listen(process.env.PORT || port, () => console.log(`${port}`));
+app.listen(process.env.PORT || port, () => {
+    console.log(`${port}`);
+    db.connect(function(err){
+        if(err) throw err;
+        console.log("database connected");
+    })
+});
 
 
 
