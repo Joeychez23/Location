@@ -44,5 +44,5 @@ app.post('/api', (request, response) => {
     data.timestamp = timestamp;
     database.insert(data);
     console.log(database);
-    response.json(data);
+    response.json(database);
 });
