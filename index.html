@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content=" IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+
+
+
+    <!--p5.js-->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
+    
+    
+    
+    
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous">
+    </script>
+    <script>
+        $(document).ready(function() {
+            
+
+            
+        })
+    </script>
+
+    <link href= "test.css" type= "text/css" rel= "stylesheet">
+
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+
+
+    <!--leaflet map CSS file-->
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+    crossorigin=""/>
+
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <!--leaflet map JS file-->
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+    crossorigin=""></script>
+
+</head>
+
+    <body>
+
+        <div class = "container-fluid">
+            <h2>POST Testing</h2>
+            <p>Some value</p>
+            <div class="row">
+
+
+
+
+
+
+
+                <div class="col-md-3 content1-left">
+                    <div class="title">Left Top</div>
+                </div>
+
+
+
+
+
+
+
+
+
+                <div class="col-md-6 content1-center">
+                    <div class="title">Check In</div>
+                    <div id="links"><a class="link" href="test.html">check in</a> | <a class="link" href="all.html">view checkins</a></div> 
+                    <div id="currlo">Current Location:</div>
+
+                    <p>
+                        Weather in <span id="cityName">Loading...</span>: <span id="weather">Loading..</span>.
+                        <br>
+                        The temperature is: <span id="temp">Loading...</span>° F.
+                        <br>
+                        Lat: <span id="latitude">Loading...</span>°, 
+                        Long: <span id="longitude">Loading...</span>°
+                        <br>
+                        <div id="air_con">
+                            The concentration of particulate matter (<span id="aq_parameter">Loading...</span>) 
+                            is <span id="aq_value">Loading...</span> <span id="aq_units"></span>.
+                            <br>
+                            Last read on 
+                            <span id="aq_date">Loading...</span>.
+                        </div>
+                    </p>
+
+                    <!--<div id="issMap"></div>-->
+
+
+                    <!--<p>
+                        Lat: <span id="latitude"></span>°
+                        <br>
+                        Long: <span id="longitude"></span>°
+                    </p>-->
+                    <!--<div id="input">
+                        <input id="nameBox" type="text" placeholder="Enter Name">
+                        <button type ="submit" id="subData">check in</button>
+                    </div>
+                    <div id="vidBox">
+                        <<canvas id= "canvas" class = "p5Canvas" style= "width: 270px; height: 200px;"></canvas>
+                        <video id="video" autoplay></video>
+                    </div>-->
+
+                </div>
+
+
+
+                <div class="col-md-3 content1-right"><div class="title">Right Top</div></div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-md-3 content2-left"><div class="title"> Left Bottom</div></div>
+                <div class="col-md-6 content2-center"><div class="title">Center Bottom</div></div>
+                <div class="col-md-3 content2-right"><div class="title">Right Bottom</div></div>
+            </div>
+
+        </div>
+        <!--<script src="test.js"></script>-->
+    </body>
+    
+</html>
