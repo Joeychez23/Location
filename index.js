@@ -2,21 +2,36 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const mysql = require('mysql');
-const db = require('./config/db');
+//const db = require('./config/db');
 const port = process.env.PORT || 3000;
 
 
 
-
-
+const connection = mysql.createConnection({
+    host: 'us-cdbr-east-06.cleardb.net',
+    user: 'bc7ada4f2cece9',
+    password: '084c2219',
+    database: 'heroku_e723bcfa51ec52b'
+});
 
 
 
 app.set('view engine', 'ejs');
 
+connection.query('SELECT * FROM data WHERE id = "1"', (error, rows) => {
+    if(error) throw error;
+
+    if (!error) {
+        console.log(rows);
+
+    }
+})
+
+
+
 
 app.get('/', function(req, res){
-    res.render('pages/index')
+    res.render('pages/index');
 })
 
 
