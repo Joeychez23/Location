@@ -90,10 +90,10 @@ function setup() {
                 body: JSON.stringify(data)
         
                 };
-                console.log(options)
+                //console.log(options)
                 const response = await fetch('/api', options);
                 const db_val = await response.json();
-                console.log(db_val);
+                //console.log(db_val);
             } catch(error) {
                 document.getElementById('cityName').textContent = city_name;
                 document.getElementById('weather').textContent = weather;
