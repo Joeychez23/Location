@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const Datastore = require('nedb');
+const db = require('./config/db');
 const port = 3000;
 
 app.use(express.static('public'));
@@ -9,8 +9,8 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-const database = new Datastore('database.db');
-database.loadDatabase();
+//const database = new Datastore('database.db');
+//database.loadDatabase();
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
