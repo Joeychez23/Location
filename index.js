@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
+    req.send(db);
 });
 //app.get('/css/index.css', function (req, res) {
     //res.sendFile(__dirname + '/css/index.css');
@@ -42,7 +43,7 @@ app.post('/api', (request, response) => {
     const data = request.body;
     const timestamp = Date.now();
     data.timestamp = timestamp;
-    database.insert(data);
-    console.log(database);
+    //database.insert(data);
+    //console.log(database);
     response.json(data);
 });
