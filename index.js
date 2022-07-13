@@ -1,13 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-//const Datastore = require('nedb');
+const Datastore = require('nedb');
 const port = 3000;
 
 app.use(express.static('public'));
 //app.use(express.json({limit: '1mb'}));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+
+const database = new Datastore('database.db');
+database.loadDatabase();
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
@@ -17,6 +20,14 @@ app.get('/', function (req, res) {
 //});
 
 app.listen(process.env.PORT || port, () => console.log(`${port}`));
+
+
+
+
+
+
+
+
 
 
 

@@ -15,7 +15,6 @@ let lon = 'undefined';
 
 
 
-
 function setup() {
     //Create video in the element for client screen
     //navigator.mediaDevices.getUserMedia({
