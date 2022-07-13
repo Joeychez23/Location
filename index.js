@@ -21,6 +21,11 @@ app.use(bodyParser.json());
 //database.loadDatabase();
 
 app.get('/', function (req, res) {
+    let sql = "SELECT * FROM DATA";
+    db.query(sql, function(err, result) {
+        if (err) throw err;
+        res.send(result);
+    })
     //res.sendFile(__dirname + '/index.html');
     res.send("Hello World");
 });
