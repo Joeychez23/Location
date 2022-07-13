@@ -31,7 +31,7 @@ app.post('/api', (request, response) => {
     const data = request.body;
     const timestamp = Date.now();
     data.timestamp = timestamp;
-    database.insert(data);
+    //database.insert(data);
     //console.log(database);
     response.json(data);
 });
