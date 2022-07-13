@@ -1,13 +1,116 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const mysql = require('mysql');
 const db = require('./config/db');
-const port = 3000;
+const port = process.env.PORT || 3000;
 
-app.use(express.static('public'));
+
+
+
+
+
+
+
+app.set('view engine', 'ejs');
+
+
+app.get('/', function(req, res){
+    res.render('/index.html')
+})
+
+
+
+
+
+app.listen(port);
+console.log(`listening on port ${port}`);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//const mysql = require('mysql');
+
+/*const db = mysql.createConnection({
+    host: "us-cdbr-east-06.cleardb.net",
+    user: "bc7ada4f2cece9",
+    password: "084c2219",
+    database: "heroku_e723bcfa51ec52b"
+});*/
+
+
+
+//app.use(express.static('public'));
 //app.use(express.json({limit: '1mb'}));
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({extended: false}));
+//app.use(bodyParser.json());
 /*app.get('/', (req, res) => {
     db.query("SELECT = FROM data", (err, result) => {
         if (err) {
@@ -19,15 +122,30 @@ app.use(bodyParser.json());
 })*/
 //const database = new Datastore('database.db');
 //database.loadDatabase();
+/*db.query('SELECT  FROM data WHERE name = "1"', function(err, result) {
+    if (err) throw err;
+    if (!error) {
+        console.log(rows);
+    }
+})*/
+/*
+db.connect(function(err){
+    if(err) throw err;
+    console.log("database connected");
+    db.query(`SELECT * FROM data WHERE name = "1"`, function(err, result) {
+        if (err) throw err;
+        if (!error) {
+            console.log(rows);
+        }
+    })
+})
+
+
+
 
 app.get('/', function (req, res) {
-    /*let sql = "SELECT * FROM DATA";
-    db.query(sql, function(err, result) {
-        if (err) throw err;
-        res.send(result);
-    })*/
     //res.sendFile(__dirname + '/index.html');
-    res.send("Hello World");
+    res.render("Hello World");
 });
 //app.get('/css/index.css', function (req, res) {
     //res.sendFile(__dirname + '/css/index.css');
@@ -38,8 +156,14 @@ app.listen(process.env.PORT || port, () => {
     db.connect(function(err){
         if(err) throw err;
         console.log("database connected");
+        db.query(`SELECT * FROM data WHERE name = "1"`, function(err, result) {
+            if (err) throw err;
+            if (!error) {
+                console.log(rows);
+            }
+        })
     })
-});
+});*/
 
 
 
@@ -52,7 +176,7 @@ app.listen(process.env.PORT || port, () => {
 
 
 
-
+/*
 
 
 app.post('/api', (request, response) => {
@@ -65,4 +189,4 @@ app.post('/api', (request, response) => {
     //database.insert(data);
     //console.log(database);
     response.json(data);
-});
+});*/
