@@ -72,7 +72,17 @@ console.log(`listening on port ${port}`);
 
 
 
+app.post('/api', (request, response) => {
 
+    console.log('I got a request');
+    console.log(request.body);
+    const data = request.body;
+    const timestamp = Date.now();
+    data.timestamp = timestamp;
+    //database.insert(data);
+    //console.log(database);
+    response.json(data);
+});
 
 
 
