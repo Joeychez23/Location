@@ -73,11 +73,11 @@ console.log(`listening on port ${port}`);
 
 
 app.post('/api', (request, response) => {
-    let data = 0;
+
     connection.connect(function(err){   
         if(err) throw err;
         console.log("database connected");
-        await connection.query('SELECT * FROM data WHERE id = "1"', (error, rows) => {
+        connection.query('SELECT * FROM data WHERE id = "1"', (error, rows) => {
             if (error) {
                 console.log('Error');
                 connection.end();
@@ -85,7 +85,8 @@ app.post('/api', (request, response) => {
             if (!error) {
                 console.log('Success');
                 console.log(rows);
-                data = rows;
+                response.json(rows);
+                //data = rows;
                 connection.end();
     
             }  
@@ -94,7 +95,7 @@ app.post('/api', (request, response) => {
 
     console.log('I got a request');
     console.log(request.body);
-    //const data = request.body;
+    const data = request.body;
     const timestamp = Date.now();
     data.timestamp = timestamp;
     //database.insert(data);
