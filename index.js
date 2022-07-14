@@ -28,6 +28,11 @@ const connection = mysql.createConnection({
 app.set('view engine', 'ejs');
 
 console.log("START");
+
+
+app.get('/', function(req, res){
+    res.render('pages/index');
+})
 /*
 connection.connect(function(err){   
     if(err) throw err;
@@ -94,16 +99,16 @@ connection.connect(function(err){
 
 
 
-
+/*
 app.get('/', function(req, res){
     res.render('pages/index');
-})
+})*/
 
 
-/*app.get('/', function (req, res) {
+app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
     //res.render("Hello World");
-});*/
+});
 
 
 
