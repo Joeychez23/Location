@@ -63,19 +63,19 @@ function setup() {
 
 
 
-                //const aq_url = `https://api.openaq.org/v2/latest?coordinates=${lat},${lon}`;
-                //const aq_response = await fetch(aq_url);
-                //const aq_data = await aq_response.json();
+                const aq_url = `https://api.openaq.org/v2/latest?coordinates=${lat},${lon}`;
+                const aq_response = await fetch(aq_url);
+                const aq_data = await aq_response.json();
 
 
 
 
-                //air = aq_data.results[0].measurements[0];
+                air = aq_data.results[0].measurements[0];
 
-                //document.getElementById('aq_parameter').textContent = air.parameter;
-                //document.getElementById('aq_value').textContent = air.value;
-                //document.getElementById('aq_units').textContent = air.unit;
-                //document.getElementById('aq_date').textContent = air.lastUpdated;
+                document.getElementById('aq_parameter').textContent = air.parameter;
+                document.getElementById('aq_value').textContent = air.value;
+                document.getElementById('aq_units').textContent = air.unit;
+                document.getElementById('aq_date').textContent = air.lastUpdated;
 
 
 
@@ -93,6 +93,10 @@ function setup() {
                 //console.log(options)
                 const response = await fetch('/api', options);
                 const db_val = await response.json();
+
+
+
+
             } catch(error) {
                 document.getElementById('cityName').textContent = city_name;
                 document.getElementById('weather').textContent = weather;
