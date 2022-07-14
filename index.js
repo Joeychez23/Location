@@ -7,6 +7,14 @@ const port = process.env.PORT || 3000;
 
 
 
+
+app.use(express.static('public'));
+app.use(express.json({limit: '1mb'}));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
+
+
 const connection = mysql.createConnection({
     host: 'us-cdbr-east-06.cleardb.net',
     user: 'bc7ada4f2cece9',
