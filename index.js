@@ -23,14 +23,14 @@ const connection = mysql.createConnection({
     multipleStatements: true
 });
 
-
+/*
 connection.connect(function(err) {
     if(err)throw err;
     else {
         console.log("Connection Successful");
     }
 })
-
+*/
 
 
 app.set('view engine', 'ejs');
@@ -38,29 +38,6 @@ app.set('view engine', 'ejs');
 console.log("START");
 
 
- 
-/*
-console.log("database connected");
-var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?; \
-CALL dataAddOrEdit(@id,@lat,@lon,@city_name,@weather,@temp);";
-connection.query(sql, [data.id, data.lat, data.lon, data.city_name, data.weather, data.temp], (error, rows, fields) => {
-    if (error) {
-        console.log(error);
-        //connection.end();
-    }
-    if (!error) {
-        rows.forEach(element => {
-            if(element.constructor == Array);
-
-        })
-        console.log('Success');
-        //connection.end();
-
-    }  
-})
-
-
-*/
 
 
 
@@ -71,7 +48,13 @@ connection.query(sql, [data.id, data.lat, data.lon, data.city_name, data.weather
 
 /*app.get('/', function(req, res){
     res.render('pages/index');
-})/*
+})*/
+
+
+
+
+
+
 /*
 connection.connect(function(err){   
     if(err) throw err;
@@ -96,14 +79,14 @@ connection.connect(function(err){
         }  
     })
 });
-
 */
 
 
 
 //insert
-/*
-connection.connect(function(err){ 
+
+connection.connect(function(err){   
+    if(err) throw err;
     let data = {
         id: 4, 
         lat: 31.230416,
@@ -111,9 +94,7 @@ connection.connect(function(err){
         city_name: 'Shanghai',
         weather: 'Broken clouds',
         temp: 92
-    }  
-
-    if(err) throw err;
+    }
     console.log("database connected");
     var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?; \
     CALL dataAddOrEdit(@id,@lat,@lon,@city_name,@weather,@temp);";
@@ -123,6 +104,7 @@ connection.connect(function(err){
             connection.end();
         }
         if (!error) {
+            console.log(rows);
             rows.forEach(element => {
                 if(element.constructor == Array);
 
@@ -132,8 +114,8 @@ connection.connect(function(err){
 
         }  
     })
-});;
-*/
+});
+
 
 
 
@@ -173,24 +155,27 @@ console.log(`listening on port ${port}`);
 
 app.post('/api', (request, response) => {
     let data = request.body;
-    console.log("database connected");
-    var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?; \
-    CALL dataAddOrEdit(@id,@lat,@lon,@city_name,@weather,@temp);";
-    connection.query(sql, [data.id, data.lat, data.lon, data.city_name, data.weather, data.temp], (error, rows, fields) => {
-        if (error) {
-            console.log(error);
-            //connection.end();
-        }
-        if (!error) {
-            rows.forEach(element => {
+    connection.connect(function(err){   
+    if(err) throw err;
+        console.log("database connected");
+        var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?; \
+        CALL dataAddOrEdit(@id,@lat,@lon,@city_name,@weather,@temp);";
+        connection.query(sql, [data.id, data.lat, data.lon, data.city_name, data.weather, data.temp], (error, rows, fields) => {
+            if (error) {
+                console.log(error);
+                connection.end();
+            }
+            if (!error) {
+                console.log(rows);
+                rows.forEach(element => {
                 if(element.constructor == Array);
 
             })
-        console.log('Success');
-        //connection.end();
-
+            console.log('Success');
+            connection.end();
         }  
     })
+});
     
     console.log('I got a request');
     console.log(request.body);

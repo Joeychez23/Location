@@ -109,7 +109,7 @@ function setup() {
                 //media.loadPixels();
                 //const image64 = media.canvas.toDataURL();
                 //data.image64 = image64;
-                let id = 4;
+                let id = 5;
                 const data = {id, lat, lon, city_name, weather, temp}; //, name, image64};
                 const options = {
                 method: 'POST',
