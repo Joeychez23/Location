@@ -30,9 +30,15 @@ connection.query('SELECT * FROM data WHERE id = "1"', (error, rows) => {
 
 
 
-app.get('/', function(req, res){
+/*app.get('/', function(req, res){
     res.render('pages/index');
-})
+})*/
+
+
+app.get('/', function (req, res) {
+    res.sendFile(__dirname + '/index.html');
+    //res.render("Hello World");
+});
 
 
 
