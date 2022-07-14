@@ -33,7 +33,7 @@ connection.connect(function(err){
     console.log("database connected");
     connection.query('SELECT * FROM data WHERE id = "1"', (error, rows) => {
         if (error) {
-            console.log('Error');
+            console.log('error');
             connection.end();
         }
         if (!error) {
@@ -73,26 +73,6 @@ console.log(`listening on port ${port}`);
 
 
 app.post('/api', (request, response) => {
-
-    connection.connect(function(err){   
-        if(err) throw err;
-        console.log("database connected");
-        connection.query('SELECT * FROM data WHERE id = "1"', (error, rows) => {
-            if (error) {
-                console.log('Error');
-                connection.end();
-            }
-            if (!error) {
-                console.log('Success');
-                console.log(rows);
-                response.json(rows);
-                //data = rows;
-                connection.end();
-    
-            }  
-        })
-    });
-
     console.log('I got a request');
     console.log(request.body);
     const data = request.body;
