@@ -84,7 +84,7 @@ connection.connect(function(err){
 
 
 //insert
-
+/*
 connection.connect(function(err){   
     if(err) throw err;
     let data = {
@@ -115,7 +115,7 @@ connection.connect(function(err){
         }  
     })
 });
-
+*/
 
 
 
