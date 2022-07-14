@@ -80,8 +80,8 @@ function setup() {
 
 
 
-
-                const data = {lat, lon, city_name, weather, temp}//air}; //, name, image64};
+                id = 5;
+                const data = {id, lat, lon, city_name, weather, temp}//air}; //, name, image64};
                 const options = {
                 method: 'POST',
                 headers: {
@@ -90,7 +90,7 @@ function setup() {
                 body: JSON.stringify(data)
         
                 };
-                //console.log(options)
+                console.log(data);
                 const response = await fetch('/api', options);
                 const db_val = await response.json();
 

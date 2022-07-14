@@ -156,7 +156,7 @@ console.log(`listening on port ${port}`);
 app.post('/api', (request, response) => {
     let data = request.body;
     connection.connect(function(err){   
-    if(err) throw err;
+        if(err) throw err;
         console.log("database connected");
         var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?; \
         CALL dataAddOrEdit(@id,@lat,@lon,@city_name,@weather,@temp);";
@@ -171,20 +171,27 @@ app.post('/api', (request, response) => {
                 if(element.constructor == Array);
 
             })
+            //console.log('Success');
+            //console.log('I got a request');
+            console.log(request.body);
+            //const data = request.body;
+            const timestamp = Date.now();
+            data.timestamp = timestamp;
+            response.json(data);
             console.log('Success');
             connection.end();
-        }  
-    })
-});
+            }    
+        })
+    });
     
-    console.log('I got a request');
-    console.log(request.body);
+    //console.log('I got a request');
+    //console.log(request.body);
     //const data = request.body;
-    const timestamp = Date.now();
-    data.timestamp = timestamp;
+    //const timestamp = Date.now();
+    //data.timestamp = timestamp;
     //database.insert(data);
     //console.log(database);
-    response.json(data);
+    //response.json(data);
 }); 
 
 
