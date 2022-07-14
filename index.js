@@ -77,7 +77,7 @@ app.post('/api', (request, response) => {
     connection.connect(function(err){   
         if(err) throw err;
         console.log("database connected");
-        connection.query('SELECT * FROM data WHERE id = "1"', (error, rows) => {
+        await connection.query('SELECT * FROM data WHERE id = "1"', (error, rows) => {
             if (error) {
                 console.log('Error');
                 connection.end();
