@@ -19,7 +19,8 @@ const connection = mysql.createConnection({
     host: 'us-cdbr-east-06.cleardb.net',
     user: 'bc7ada4f2cece9',
     password: '084c2219',
-    database: 'heroku_e723bcfa51ec52b'
+    database: 'heroku_e723bcfa51ec52b',
+    multipleStatements: true
 });
 
 
@@ -30,7 +31,7 @@ console.log("START");
 
 connection.connect(function(err){   
     if(err) throw err;
-    console.log("database connected");
+    console.log("database connected"); //WHERE id = "1"
     connection.query('SELECT * FROM data WHERE id = "1"', (error, rows) => {
         if (error) {
             console.log('error');
@@ -38,8 +39,15 @@ connection.connect(function(err){
         }
         if (!error) {
             console.log('Success');
-            console.log(rows);
+
+            //for(let i = 0; i < rows.length(); i++) {
+                //console.log(rows);
+            //}
+            //console.log(array);
+            let id = rows[0].id
+            console.log(id);
             connection.end();
+            //console.log(rows.getString("city_name"));
 
         }  
     })
@@ -61,6 +69,11 @@ app.get('/', function (req, res) {
 
 
 
+
+
+
+
+
 app.listen(port);
 console.log(`listening on port ${port}`);
 
@@ -73,9 +86,33 @@ console.log(`listening on port ${port}`);
 
 
 app.post('/api', (request, response) => {
+    let data = request.body;
+    
+    connection.connect(function(err){   
+        if(err) throw err;
+        console.log("database connected");
+        let sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?; \
+        CALL dataAddOrEdit(@id,@lat,@lon,@city_name,@weather,@temp);";
+        connection.query(sql,[data.id, data.lat, data.lon, data.city_name, data.weather, data.temp], (error, rows, fields) => {
+            if (error) {
+                console.log('error');
+                connection.end();
+            }
+            if (!error) {
+                rows.forEach(element => {
+                    if(element.constructor == Array)
+                    response,send('Inserted id: ' +element[0].id);
+                    
+                })
+                console.log('Success');
+                connection.end();
+    
+            }  
+        })
+    });;
     console.log('I got a request');
     console.log(request.body);
-    const data = request.body;
+    //const data = request.body;
     const timestamp = Date.now();
     data.timestamp = timestamp;
     //database.insert(data);
