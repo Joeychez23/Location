@@ -30,9 +30,9 @@ app.set('view engine', 'ejs');
 console.log("START");
 
 
-app.get('/', function(req, res){
+/*app.get('/', function(req, res){
     res.render('pages/index');
-})
+})/*
 /*
 connection.connect(function(err){   
     if(err) throw err;
