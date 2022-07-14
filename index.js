@@ -88,7 +88,7 @@ connection.connect(function(err){
 connection.connect(function(err){   
     if(err) throw err;
     let data = {
-        id: 4, 
+        id: 5, 
         lat: 31.230416,
         lon: 121.473701,
         city_name: 'Shanghai',
@@ -115,8 +115,8 @@ connection.connect(function(err){
         }  
     })
 });
-*/
 
+*/
 
 
 
