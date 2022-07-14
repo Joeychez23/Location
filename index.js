@@ -18,15 +18,24 @@ const connection = mysql.createConnection({
 
 app.set('view engine', 'ejs');
 
-connection.query('SELECT * FROM data WHERE id = "1"', (error, rows) => {
-    if(error) throw error;
+console.log("START");
 
-    if (!error) {
-        console.log(rows);
+connection.connect(function(err){   
+    if(err) throw err;
+    console.log("database connected");
+    connection.query('SELECT * FROM data WHERE id = "1"', (error, rows) => {
+        if (error) {
+            console.log('Error');
+            connection.end();
+        }
+        if (!error) {
+            console.log('Success');
+            console.log(rows);
+            connection.end();
 
-    }
-})
-
+        }  
+    })
+});
 
 
 
