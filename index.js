@@ -28,7 +28,7 @@ const connection = mysql.createConnection({
 app.set('view engine', 'ejs');
 
 console.log("START");
-
+/*
 connection.connect(function(err){   
     if(err) throw err;
     console.log("database connected"); //WHERE id = "1"
@@ -53,17 +53,57 @@ connection.connect(function(err){
     })
 });
 
+*/
 
 
-/*app.get('/', function(req, res){
+
+//insert
+connection.connect(function(err){ 
+    let data = {
+        id: 4, 
+        lat: 31.230416,
+        lon: 121.473701,
+        city_name: 'Shanghai',
+        weather: 'Broken clouds',
+        temp: 92
+    }  
+
+    if(err) throw err;
+    console.log("database connected");
+    var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?; \
+    CALL dataAddOrEdit(@id,@lat,@lon,@city_name,@weather,@temp);";
+    connection.query(sql, [data.id, data.lat, data.lon, data.city_name, data.weather, data.temp], (error, rows, fields) => {
+        if (error) {
+            console.log(error);
+            connection.end();
+        }
+        if (!error) {
+            rows.forEach(element => {
+                if(element.constructor == Array);
+            })
+            console.log('Success');
+            connection.end();
+
+        }  
+    })
+});;
+
+
+
+
+
+
+
+
+app.get('/', function(req, res){
     res.render('pages/index');
-})*/
+})
 
 
-app.get('/', function (req, res) {
+/*app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
     //res.render("Hello World");
-});
+});*/
 
 
 
@@ -84,10 +124,9 @@ console.log(`listening on port ${port}`);
 
 
 
-
+/*
 app.post('/api', (request, response) => {
     let data = request.body;
-    
     connection.connect(function(err){   
         if(err) throw err;
         console.log("database connected");
@@ -110,6 +149,7 @@ app.post('/api', (request, response) => {
             }  
         })
     });;
+    
     console.log('I got a request');
     console.log(request.body);
     //const data = request.body;
@@ -118,7 +158,7 @@ app.post('/api', (request, response) => {
     //database.insert(data);
     //console.log(database);
     response.json(data);
-});
+}); */
 
 
 
