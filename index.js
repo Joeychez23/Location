@@ -73,7 +73,7 @@ console.log(`listening on port ${port}`);
 
 
 app.post('/api', (request, response) => {
-    const data = 0;
+    let data = 0;
     connection.connect(function(err){   
         if(err) throw err;
         console.log("database connected");
