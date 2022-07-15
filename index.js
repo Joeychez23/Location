@@ -13,19 +13,20 @@ app.use(express.json({limit: '1mb'}));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-var config = mysql.createConnection({
+const connection = mysql.createConnection({
     host: 'us-cdbr-east-06.cleardb.net',
     user: 'bc7ada4f2cece9',
     password: '084c2219',
     database: 'heroku_e723bcfa51ec52b',
-    multipleStatements: true
+    multipleStatements: true,
+    insecureAuth : true
 });
 
 
-let connection;
+//let connection;
 
 function handleDisconnect() {
-    connection = mysql.createConnection(config); // Recreate the connection, since
+    //connection = mysql.createConnection(config); // Recreate the connection, since
                                                     // the old one cannot be reused.
   
     connection.connect(function(err) {              // The server is either down
@@ -45,7 +46,7 @@ function handleDisconnect() {
     });
 }
   
-//handleDisconnect();
+handleDisconnect();
 
 /*= mysql.createConnection({
     host: 'us-cdbr-east-06.cleardb.net',
@@ -70,9 +71,68 @@ app.set('view engine', 'ejs');
 console.log("START");
 
 
+/*
+let data = {
+    id: 0, 
+    lat: 31.230416,
+    lon: 121.473701,
+    city_name: 'Shanghai',
+    weather: 'Broken clouds',
+    temp: 92
+}*/
 
 
 
+
+//let data = request.body;
+/*
+try{
+            
+    var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?; \
+    CALL dataAddOrEdit(@id,@lat,@lon,@city_name,@weather,@temp);";
+    connection.query(sql, [data.id, data.lat, data.lon, data.city_name, data.weather, data.temp], (error, rows, fields) => {
+        if (error) {
+            //console.log(error);
+            //connection.end();
+        }
+        if (!error) {
+        console.log(rows);
+        rows.forEach(element => {
+        if(element.constructor == Array);
+        })
+        //console.log(request.body);
+        //const data = request.body;
+        const timestamp = Date.now();
+        data.timestamp = timestamp;
+        //response.json(data);
+        console.log('Success');
+        //connection.end();
+        }    
+    });
+} catch (error) {
+    var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?; \
+    CALL dataAddOrEdit(@id,@lat,@lon,@city_name,@weather,@temp);";
+    connection.query(sql, [data.id, data.lat, data.lon, data.city_name, data.weather, data.temp], (error, rows, fields) => {
+        if (error) {
+            //console.log(error);
+            //connection.end();
+        }
+        if (!error) {
+        console.log(rows);
+        rows.forEach(element => {
+        if(element.constructor == Array);
+        })
+        //console.log(request.body);
+        //const data = request.body;
+        const timestamp = Date.now();
+        data.timestamp = timestamp;
+        //response.json(data);
+        console.log('Kinda Success');
+        //connection.end();
+        }    
+    })
+}
+*/
 
 
 
