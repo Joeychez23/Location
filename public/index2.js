@@ -46,7 +46,9 @@ function setup() {
 
 
                 //Not in ENV
-                const api_key = "293a3bc9a37743dfb48df9cfd0d44dc1";
+                const api_request = await fetch('/api_key')
+                const api_key = api_request.json();//"293a3bc9a37743dfb48df9cfd0d44dc1";
+                console.log(api_key);
                 const api_url = `https://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${lon}&key=${api_key}&include=minutely&units=I`;
                 const weather_response = await fetch(api_url);
                 const castData = await weather_response.json();
