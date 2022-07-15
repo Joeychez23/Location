@@ -185,7 +185,7 @@ app.post('/api', (request, response) => {
         });
     } 
     catch(error) {
-        //try{
+        try{
             connection.connect(function(err){   
                 if(err) {
                     connection.end();}
@@ -214,7 +214,13 @@ app.post('/api', (request, response) => {
                 //connection.end();
             });
 
-        /*} catch (error) {
+        }catch (error) {
+            connection.destroy();
+            const timestamp = Date.now();
+            data.timestamp = timestamp;
+            response.json(data);
+        }
+            /*
             connection.connect(function(err){   
                 if(err) {}
                     //connection.end();}
