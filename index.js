@@ -208,14 +208,14 @@ app.post('/api', (request, response) => {
                         data.timestamp = timestamp;
                         response.json(data);
                         console.log('Success');
-                        connection.end();
+                        //connection.end();
                     }    
                 })
                 //connection.end();
             //});
 
         }catch (error) {
-            connection.destroy();
+            //connection.destroy();
             const timestamp = Date.now();
             data.timestamp = timestamp;
             response.json(data);
