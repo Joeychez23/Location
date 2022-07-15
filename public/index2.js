@@ -36,6 +36,7 @@ function setup() {
     if ('geolocation' in navigator) {
         console.log('geolocation available');
         navigator.geolocation.getCurrentPosition(async position => {
+            try {
                 lat = position.coords.latitude;
                 lon = position.coords.longitude;
                 document.getElementById('latitude').textContent = lat.toFixed(2);
@@ -61,8 +62,6 @@ function setup() {
 
 
 
-
-                try {
                 const aq_url = `https://api.openaq.org/v2/latest?coordinates=${lat},${lon}`;
                 const aq_response = await fetch(aq_url);
                 const aq_data = await aq_response.json();
@@ -71,13 +70,6 @@ function setup() {
                 document.getElementById('aq_value').textContent = air.value;
                 document.getElementById('aq_units').textContent = air.unit;
                 document.getElementById('aq_date').textContent = air.lastUpdated;
-                } catch (error) {
-                document.getElementById('cityName').textContent = city_name;
-                document.getElementById('weather').textContent = weather;
-                document.getElementById('temp').textContent = temp;
-                document.getElementById('air_con').textContent = 'No reading available in this area :(';
-
-                }
 
 
 
@@ -104,14 +96,9 @@ function setup() {
                 console.log(data);
                 const response = await fetch('/api', options);
                 const db_val = await response.json();
-            })
-        }
-    }
 
-
-
-            //} catch(error) {
-                /*
+            } catch(error) {
+                
                 document.getElementById('cityName').textContent = city_name;
                 document.getElementById('weather').textContent = weather;
                 document.getElementById('temp').textContent = temp;
@@ -173,6 +160,5 @@ function setup() {
 
 
                 
-*/
 
                 
