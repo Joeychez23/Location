@@ -158,7 +158,6 @@ app.post('/api', (request, response) => {
     try{
         connection.connect(function(err){   
             if(err) {
-                throw err;
                 connection.end();}
             console.log("database connected");
             var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?; \
