@@ -13,7 +13,15 @@ let id = 0;
 
 
 
+//function re() {
+    //window.location.reload(true);
+//}
 
+//function time() {
+    //setTimeout(re(), 5000);
+//}
+
+//setInterval(time(), 5000);
 
 
 function setup() {
