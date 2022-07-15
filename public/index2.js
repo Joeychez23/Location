@@ -96,7 +96,7 @@ function setup() {
                 const response = await fetch('/api', options);
                 const db_val = await response.json();
 
-                setInterval(window.location.reload, 1000);
+                setInterval(window.location.reload(), 1000);
 
             } catch(error) {
                 
