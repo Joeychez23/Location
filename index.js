@@ -55,7 +55,7 @@ console.log("START");
 
 
 
-
+/*
 connection.connect(function(err){   
     if(err) throw err;
     console.log("database connected"); //WHERE id = "1"
@@ -79,7 +79,7 @@ connection.connect(function(err){
         }  
     })
 });
-
+*/
 
 
 
