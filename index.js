@@ -24,12 +24,12 @@ const connection = mysql.createConnection({
 });
 
 
-//connection.connect(function(err) {
-    //if(err)throw err;
-    //else {
-        //console.log("Connection Successful");
-    //}
-//})
+connection.connect(function(err) {
+    if(err)throw err;
+    else {
+        console.log("Connection Successful");
+    }
+})
 
 
 
@@ -156,10 +156,10 @@ console.log(`listening on port ${port}`);
 app.post('/api', (request, response) => {
     let data = request.body;
     try{
-        connection.connect(function(err){   
-            if(err) {
-                connection.end();}
-            console.log("database connected");
+        //connection.connect(function(err){   
+            //if(err) {
+                //connection.end();}
+            //console.log("database connected");
             var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?; \
             CALL dataAddOrEdit(@id,@lat,@lon,@city_name,@weather,@temp);";
             connection.query(sql, [data.id, data.lat, data.lon, data.city_name, data.weather, data.temp], (error, rows, fields) => {
@@ -182,13 +182,13 @@ app.post('/api', (request, response) => {
                 }    
             })
             //connection.end();
-        });
+        //});
     } 
     catch(error) {
         try{
-            connection.connect(function(err){   
-                if(err) {
-                    connection.end();}
+            //connection.connect(function(err){   
+                //if(err) {
+                    //connection.end();}
                 console.log("database connected");
                 var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?; \
                 CALL dataAddOrEdit(@id,@lat,@lon,@city_name,@weather,@temp);";
@@ -212,7 +212,7 @@ app.post('/api', (request, response) => {
                     }    
                 })
                 //connection.end();
-            });
+            //});
 
         }catch (error) {
             connection.destroy();
