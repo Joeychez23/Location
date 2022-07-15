@@ -187,14 +187,14 @@ input, select {
     scroll-snap-type: y mandatory;
 
  }
-
+/*
  .content1-center-data:hover{
-
     overflow:hidden;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
     scrollbar-color: grey black;
  }
+ */
 
  .center-body{
     text-decoration: none;
