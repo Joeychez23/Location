@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+require('dotenv').config();
 const mysql = require('mysql');
 //const db = require('./config/db');
 const port = process.env.PORT || 3000;
@@ -90,7 +91,13 @@ app.get('/', function (req, res) {
 
 
 
+app.get('/api_key', (request, response) => {
+    console.log(process.env.API_KEY);
+    const data = process.env.API_KEY;
+    console.log(data);
 
+    response.json(data);
+});
 
 
 
