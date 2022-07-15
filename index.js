@@ -163,7 +163,7 @@ app.post('/api', (request, response) => {
         connection.query(sql, [data.id, data.lat, data.lon, data.city_name, data.weather, data.temp], (error, rows, fields) => {
             if (error) {
                 //console.log(error);
-                connection.destroy();
+                connection.destory();
             }
             if (!error) {
                 console.log(rows);
@@ -176,7 +176,7 @@ app.post('/api', (request, response) => {
                 data.timestamp = timestamp;
                 response.json(data);
                 console.log('Success');
-                connection.destroy();
+                connection.end;
             }    
         })
         //connection.end();
