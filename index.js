@@ -187,7 +187,7 @@ console.log(`listening on port ${port}`);
 
 app.post('/api', (request, response) => {
     let data = request.body;
-    try{
+    //try{
         //connection.connect(function(err){   
             //if(err) {
                 //connection.end();}
@@ -214,8 +214,8 @@ app.post('/api', (request, response) => {
                 }    
             })
             //connection.end();
-        //});
-    } 
+        });
+    /*
     catch(error) {
         try{
             //connection.connect(function(err){   
@@ -283,9 +283,9 @@ app.post('/api', (request, response) => {
             */
         //}
 
-    }
+    //}
     //connection.end();
-});
+//});
 
 
 
