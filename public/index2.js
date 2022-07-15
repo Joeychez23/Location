@@ -25,10 +25,15 @@ function setup() {
     //});
 
     function re() {
+        setTimeout()
         window.location.reload(true);
     }
 
-    setInterval(re(), 5000);
+    function time() {
+        setTimeout(re(), 5000);
+    }
+
+    setInterval(time(), 5000);
 
     //Create video to use base64 data
     noCanvas();
