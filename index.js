@@ -177,7 +177,7 @@ app.post('/api', (request, response) => {
                     data.timestamp = timestamp;
                     response.json(data);
                     console.log('Success');
-                    connection.end;
+                    connection.end();
                 }    
             })
             //connection.end();
