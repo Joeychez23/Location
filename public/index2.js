@@ -69,6 +69,7 @@ function setup() {
                 const aq_data = await aq_response.json();
                 console.log(aq_data);
                 air = aq_data.results[0].measurements[0];
+                console.log(air);
                 document.getElementById('aq_parameter').textContent = air.parameter;
                 document.getElementById('aq_value').textContent = air.value;
                 document.getElementById('aq_units').textContent = air.unit;
