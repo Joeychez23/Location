@@ -24,7 +24,7 @@ function setup() {
        //document.getElementById('video').srcObject = stream;
     //});
 
-
+    setInterval(window.location.reload(), 1000);
 
 
     //Create video to use base64 data
@@ -96,7 +96,6 @@ function setup() {
                 const response = await fetch('/api', options);
                 const db_val = await response.json();
 
-                setInterval(window.location.reload(), 1000);
 
             } catch(error) {
                 
