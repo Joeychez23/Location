@@ -60,22 +60,6 @@ function handleDisconnect() {
   
 handleDisconnect();
 
-/*= mysql.createConnection({
-    host: 'us-cdbr-east-06.cleardb.net',
-    user: 'bc7ada4f2cece9',
-    password: '084c2219',
-    database: 'heroku_e723bcfa51ec52b',
-    multipleStatements: true
-});
-
-
-connection.connect(function(err) {
-    if(err)throw err;
-    else {
-        console.log("Connection Successful");
-    }
-})*/
-
 
 
 app.set('view engine', 'ejs');
@@ -122,9 +106,9 @@ app.post('/api', (request, response) => {
     let data = request.body;
     try{
             
-    var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?; \
-    CALL dataAddOrEdit(@id,@lat,@lon,@city_name,@weather,@temp);";
-    connection.query(sql, [data.id, data.lat, data.lon, data.city_name, data.weather, data.temp], (error, rows, fields) => {
+    var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?;SET @lastUpdated = ?;SET @parameter = ?;SET @unit = ?;SET @value = ?; \
+    CALL dataAddOrEdit(@id,@lat,@lon,@city_name,@weather,@temp,@lastUpdated,@parameter,@unit,@value);";
+    connection.query(sql, [data.id, data.lat, data.lon, data.city_name, data.weather, data.temp, data.air.lastUpdated, data.air.parameter, data.air.unit, data.air.value], (error, rows, fields) => {
         if (error) {
             //console.log(error);
             //connection.end();
@@ -167,6 +151,33 @@ app.post('/api', (request, response) => {
     })
 }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
