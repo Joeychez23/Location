@@ -157,7 +157,9 @@ app.post('/api', (request, response) => {
     let data = request.body;
     try{
         connection.connect(function(err){   
-            if(err) {connection.end();}
+            if(err) {
+                throw err;
+                connection.end();}
             console.log("database connected");
             var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?; \
             CALL dataAddOrEdit(@id,@lat,@lon,@city_name,@weather,@temp);";
@@ -183,10 +185,12 @@ app.post('/api', (request, response) => {
             //connection.end();
         });
     } 
-    catch (err) {
+    catch(err) {
         try{
             connection.connect(function(err){   
-                if(err) {connection.end();}
+                if(err) {
+                    throw err; 
+                    connection.end();}
                 console.log("database connected");
                 var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?; \
                 CALL dataAddOrEdit(@id,@lat,@lon,@city_name,@weather,@temp);";
@@ -213,7 +217,9 @@ app.post('/api', (request, response) => {
             });
         } catch (err) {
             connection.connect(function(err){   
-                if(err) {connection.end();}
+                if(err) {
+                    throw err;
+                    connection.end();}
                 console.log("database connected");
                 var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?; \
                 CALL dataAddOrEdit(@id,@lat,@lon,@city_name,@weather,@temp);";
