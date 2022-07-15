@@ -15,7 +15,7 @@ let id = 0;
 
 
 function time() {
-    setTimeout(window.location.reload(true), 5000);
+    setTimeout(location.reload(), 5000);
 }
 
 setInterval(time(), 5000);
