@@ -53,7 +53,7 @@ handleDisconnect();
     password: '084c2219',
     database: 'heroku_e723bcfa51ec52b',
     multipleStatements: true
-});*/
+});
 
 
 connection.connect(function(err) {
@@ -61,7 +61,7 @@ connection.connect(function(err) {
     else {
         console.log("Connection Successful");
     }
-})
+})*/
 
 
 
