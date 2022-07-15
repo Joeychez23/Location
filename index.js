@@ -13,7 +13,7 @@ app.use(express.json({limit: '1mb'}));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-const connection = mysql.createConnection({
+let connection = mysql.createConnection({
     host: 'us-cdbr-east-06.cleardb.net',
     user: 'bc7ada4f2cece9',
     password: '084c2219',
@@ -26,7 +26,15 @@ const connection = mysql.createConnection({
 //let connection;
 
 function handleDisconnect() {
-    //connection = mysql.createConnection(config); // Recreate the connection, since
+    connection = mysql.createConnection({
+        host: 'us-cdbr-east-06.cleardb.net',
+        user: 'bc7ada4f2cece9',
+        password: '084c2219',
+        database: 'heroku_e723bcfa51ec52b',
+        multipleStatements: true,
+        insecureAuth : true
+    });
+                                                    // Recreate the connection, since
                                                     // the old one cannot be reused.
   
     connection.connect(function(err) {              // The server is either down
@@ -79,13 +87,13 @@ let data = {
     city_name: 'Shanghai',
     weather: 'Broken clouds',
     temp: 92
-}*/
+}
 
 
 
 
 //let data = request.body;
-/*
+
 try{
             
     var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?; \
@@ -132,8 +140,8 @@ try{
         }    
     })
 }
-*/
 
+*/
 
 
 
