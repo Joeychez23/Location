@@ -8,6 +8,7 @@ let weather = 'undefined';
 let temp = 'undefined';
 let lat = 'undefined';
 let lon = 'undefined';
+let id = 0;
 //let api_key = 'undefined';
 
 
@@ -82,7 +83,6 @@ function setup() {
 
 
 
-                id = 0;
                 const data = {id, lat, lon, city_name, weather, temp}//air}; //, name, image64};
                 const options = {
                 method: 'POST',
@@ -113,7 +113,6 @@ function setup() {
                 //media.loadPixels();
                 //const image64 = media.canvas.toDataURL();
                 //data.image64 = image64;
-                let id = 0;
                 const data = {id, lat, lon, city_name, weather, temp}; //, name, image64};
                 const options = {
                 method: 'POST',
