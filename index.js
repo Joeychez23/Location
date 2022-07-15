@@ -165,7 +165,7 @@ app.post('/api', (request, response) => {
             connection.query(sql, [data.id, data.lat, data.lon, data.city_name, data.weather, data.temp], (error, rows, fields) => {
                 if (error) {
                     //console.log(error);
-                    connection.end();
+                    //connection.end();
                 }
                 if (!error) {
                     console.log(rows);
@@ -178,7 +178,7 @@ app.post('/api', (request, response) => {
                     data.timestamp = timestamp;
                     response.json(data);
                     console.log('Success');
-                    connection.end();
+                    //connection.end();
                 }    
             })
             //connection.end();
@@ -186,7 +186,7 @@ app.post('/api', (request, response) => {
     } 
     catch(error) {
         try{
-            connection.connect();//function(err){   
+            //connection.connect(function(err){   
                 //if(err) {
                     //connection.end();}
                 console.log("database connected");
