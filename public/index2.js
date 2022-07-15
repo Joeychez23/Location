@@ -67,9 +67,9 @@ function setup() {
                 const aq_url = `https://api.openaq.org/v2/latest?coordinates=${lat},${lon}`;
                 const aq_response = await fetch(aq_url);
                 const aq_data = await aq_response.json();
-                console.log(aq_data);
+                //console.log(aq_data);
                 air = aq_data.results[0].measurements[0];
-                console.log(air);
+                //console.log(air);
                 document.getElementById('aq_parameter').textContent = air.parameter;
                 document.getElementById('aq_value').textContent = air.value;
                 document.getElementById('aq_units').textContent = air.unit;
@@ -86,7 +86,7 @@ function setup() {
 
 
 
-                const data = {id, lat, lon, city_name, weather, temp}//air}; //, name, image64};
+                const data = {id, lat, lon, city_name, weather, temp, air}; //, name, image64};
                 const options = {
                 method: 'POST',
                 headers: {
