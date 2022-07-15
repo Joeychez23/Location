@@ -22,7 +22,7 @@ var config = mysql.createConnection({
 });
 
 
-var connection 
+let connection;
 
 function handleDisconnect() {
     connection = mysql.createConnection(config); // Recreate the connection, since
@@ -45,7 +45,7 @@ function handleDisconnect() {
     });
 }
   
-handleDisconnect();
+//handleDisconnect();
 
 /*= mysql.createConnection({
     host: 'us-cdbr-east-06.cleardb.net',
@@ -301,7 +301,7 @@ app.post('/api', (request, response) => {
 
 
 
-
+handleDisconnect();
 
 
 
