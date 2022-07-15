@@ -184,32 +184,61 @@ app.post('/api', (request, response) => {
         });
     } 
     catch (err) {
-        connection.connect(function(err){   
-            if(err) {connection.end();}
-            console.log("database connected");
-            var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?; \
-            CALL dataAddOrEdit(@id,@lat,@lon,@city_name,@weather,@temp);";
-            connection.query(sql, [data.id, data.lat, data.lon, data.city_name, data.weather, data.temp], (error, rows, fields) => {
-                if (error) {
-                    //console.log(error);
-                    connection.end();
-                }
-                if (!error) {
-                    console.log(rows);
-                    rows.forEach(element => {
-                    if(element.constructor == Array);
-                    })
-                    console.log(request.body);
-                    //const data = request.body;
-                    const timestamp = Date.now();
-                    data.timestamp = timestamp;
-                    response.json(data);
-                    console.log('Success');
-                    connection.end;
-                }    
-            })
-            //connection.end();
-        });
+        try{
+            connection.connect(function(err){   
+                if(err) {connection.end();}
+                console.log("database connected");
+                var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?; \
+                CALL dataAddOrEdit(@id,@lat,@lon,@city_name,@weather,@temp);";
+                connection.query(sql, [data.id, data.lat, data.lon, data.city_name, data.weather, data.temp], (error, rows, fields) => {
+                    if (error) {
+                        //console.log(error);
+                        connection.end();
+                    }
+                    if (!error) {
+                        console.log(rows);
+                        rows.forEach(element => {
+                        if(element.constructor == Array);
+                        })
+                        console.log(request.body);
+                        //const data = request.body;
+                        const timestamp = Date.now();
+                        data.timestamp = timestamp;
+                        response.json(data);
+                        console.log('Success');
+                        connection.end();
+                    }    
+                })
+                //connection.end();
+            });
+        } catch (err) {
+            connection.connect(function(err){   
+                if(err) {connection.end();}
+                console.log("database connected");
+                var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?; \
+                CALL dataAddOrEdit(@id,@lat,@lon,@city_name,@weather,@temp);";
+                connection.query(sql, [data.id, data.lat, data.lon, data.city_name, data.weather, data.temp], (error, rows, fields) => {
+                    if (error) {
+                        //console.log(error);
+                        connection.end();
+                    }
+                    if (!error) {
+                        console.log(rows);
+                        rows.forEach(element => {
+                        if(element.constructor == Array);
+                        })
+                        console.log(request.body);
+                        //const data = request.body;
+                        const timestamp = Date.now();
+                        data.timestamp = timestamp;
+                        response.json(data);
+                        console.log('Success');
+                        connection.end();
+                    }    
+                })
+                //connection.end();
+            });
+        }
 
     }
     //connection.end();
