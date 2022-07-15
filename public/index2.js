@@ -24,8 +24,11 @@ function setup() {
        //document.getElementById('video').srcObject = stream;
     //});
 
-    setInterval(window.location.reload(), 10000);
+    function re() {
+        window.location.reload(true);
+    }
 
+    setInterval(re(), 5000);
 
     //Create video to use base64 data
     noCanvas();
