@@ -184,11 +184,10 @@ app.post('/api', (request, response) => {
             //connection.end();
         });
     } 
-    catch(err) {
+    catch(error) {
         try{
             connection.connect(function(err){   
-                if(err) {
-                    throw err; 
+                if(error) {
                     connection.end();}
                 console.log("database connected");
                 var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?; \
@@ -214,10 +213,9 @@ app.post('/api', (request, response) => {
                 })
                 //connection.end();
             });
-        } catch (err) {
+        } catch (error) {
             connection.connect(function(err){   
                 if(err) {
-                    throw err;
                     connection.end();}
                 console.log("database connected");
                 var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?; \
