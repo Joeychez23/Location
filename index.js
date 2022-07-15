@@ -24,12 +24,12 @@ const connection = mysql.createConnection({
 });
 
 
-connection.connect(function(err) {
-    if(err)throw err;
-    else {
-        console.log("Connection Successful");
-    }
-})
+//connection.connect(function(err) {
+    //if(err)throw err;
+    //else {
+        //console.log("Connection Successful");
+    //}
+//})
 
 
 
@@ -155,8 +155,8 @@ console.log(`listening on port ${port}`);
 
 app.post('/api', (request, response) => {
     let data = request.body;
-    //connection.connect(function(err){   
-        //if(err) throw err;
+    connection.connect(function(err){   
+        if(err) throw err;
         console.log("database connected");
         var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?; \
         CALL dataAddOrEdit(@id,@lat,@lon,@city_name,@weather,@temp);";
@@ -179,7 +179,9 @@ app.post('/api', (request, response) => {
                 connection.end();
             }    
         })
-    //});
+        connection.end();
+    });
+    connection.end();
 });
 
 
