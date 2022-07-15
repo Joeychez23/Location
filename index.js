@@ -169,17 +169,14 @@ app.post('/api', (request, response) => {
                 console.log(rows);
                 rows.forEach(element => {
                 if(element.constructor == Array);
-
-            })
-            //console.log('Success');
-            //console.log('I got a request');
-            console.log(request.body);
-            //const data = request.body;
-            const timestamp = Date.now();
-            data.timestamp = timestamp;
-            response.json(data);
-            console.log('Success');
-            connection.end();
+                })
+                console.log(request.body);
+                //const data = request.body;
+                const timestamp = Date.now();
+                data.timestamp = timestamp;
+                response.json(data);
+                console.log('Success');
+                connection.end();
             }    
         })
     });
