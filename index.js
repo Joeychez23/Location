@@ -156,14 +156,14 @@ console.log(`listening on port ${port}`);
 app.post('/api', (request, response) => {
     let data = request.body;
     connection.connect(function(err){   
-        if(err) throw err;
+        if(err) throw connection.end();
         console.log("database connected");
         var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?; \
         CALL dataAddOrEdit(@id,@lat,@lon,@city_name,@weather,@temp);";
         connection.query(sql, [data.id, data.lat, data.lon, data.city_name, data.weather, data.temp], (error, rows, fields) => {
             if (error) {
                 //console.log(error);
-                connection.destory();
+                connection.end();
             }
             if (!error) {
                 console.log(rows);
