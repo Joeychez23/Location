@@ -68,11 +68,11 @@ function setup() {
                 const aq_response = await fetch(aq_url);
                 const aq_data = await aq_response.json();
                 console.log(aq_data);
-                //air = aq_data.results[0].measurements[0];
-                //document.getElementById('aq_parameter').textContent = air.parameter;
-                //document.getElementById('aq_value').textContent = air.value;
-                //document.getElementById('aq_units').textContent = air.unit;
-                //document.getElementById('aq_date').textContent = air.lastUpdated;
+                air = aq_data.results[0].measurements[0];
+                document.getElementById('aq_parameter').textContent = air.parameter;
+                document.getElementById('aq_value').textContent = air.value;
+                document.getElementById('aq_units').textContent = air.unit;
+                document.getElementById('aq_date').textContent = air.lastUpdated;
 
                 //document.getElementById('air_con').textContent = 'No reading available in this area :(';
                 //air = aq_data.results[0].measurements[0];
@@ -101,10 +101,10 @@ function setup() {
 
             } catch(error) {
                 
-                //document.getElementById('cityName').textContent = city_name;
-                //document.getElementById('weather').textContent = weather;
-                //document.getElementById('temp').textContent = temp;
-                //document.getElementById('air_con').textContent = 'No reading available in this area :(';
+                document.getElementById('cityName').textContent = city_name;
+                document.getElementById('weather').textContent = weather;
+                document.getElementById('temp').textContent = temp;
+                document.getElementById('air_con').textContent = 'No reading available in this area :(';
 
                 //document.getElementById("issMap").style.height = "260px";
                 //document.getElementById("issMap").style.visibility = "visible";
