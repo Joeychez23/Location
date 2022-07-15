@@ -79,6 +79,103 @@ app.set('view engine', 'ejs');
 console.log("START");
 
 
+
+
+
+
+app.get('/', function (req, res) {
+    res.sendFile(__dirname + '/index.html');
+    //res.render("Hello World");
+});
+
+
+
+
+app.get("/map", function (req, res) {
+    res.sendFile(__dirname + '/rec.html');
+    //res.render("Hello World");
+});
+
+
+
+
+
+
+
+
+
+app.listen(port);
+console.log(`listening on port ${port}`);
+
+
+
+
+
+
+
+
+
+app.post('/api', (request, response) => {
+    let data = request.body;
+    try{
+            
+    var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?; \
+    CALL dataAddOrEdit(@id,@lat,@lon,@city_name,@weather,@temp);";
+    connection.query(sql, [data.id, data.lat, data.lon, data.city_name, data.weather, data.temp], (error, rows, fields) => {
+        if (error) {
+            //console.log(error);
+            //connection.end();
+        }
+        if (!error) {
+        console.log(rows);
+        rows.forEach(element => {
+        if(element.constructor == Array);
+        })
+        console.log(request.body);
+        //const data = request.body;
+        const timestamp = Date.now();
+        data.timestamp = timestamp;
+        response.json(data);
+        console.log('Success');
+        //connection.end();
+        }    
+    })
+} catch (error) {
+    var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?; \
+    CALL dataAddOrEdit(@id,@lat,@lon,@city_name,@weather,@temp);";
+    connection.query(sql, [data.id, data.lat, data.lon, data.city_name, data.weather, data.temp], (error, rows, fields) => {
+        if (error) {
+            //console.log(error);
+            //connection.end();
+        }
+        if (!error) {
+        console.log(rows);
+        rows.forEach(element => {
+        if(element.constructor == Array);
+        })
+        console.log(request.body);
+        //const data = request.body;
+        const timestamp = Date.now();
+        data.timestamp = timestamp;
+        response.json(data);
+        console.log('Success');
+        //connection.end();
+        }    
+    })
+}
+});
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 let data = {
     id: 0, 
@@ -228,10 +325,6 @@ app.get('/', function(req, res){
 })*/
 
 
-app.get('/', function (req, res) {
-    res.sendFile(__dirname + '/index.html');
-    //res.render("Hello World");
-});
 
 
 
@@ -242,66 +335,11 @@ app.get('/', function (req, res) {
 
 
 
-app.listen(port);
-console.log(`listening on port ${port}`);
 
 
 
 
 
-
-
-
-
-app.post('/api', (request, response) => {
-    let data = request.body;
-    try{
-            
-    var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?; \
-    CALL dataAddOrEdit(@id,@lat,@lon,@city_name,@weather,@temp);";
-    connection.query(sql, [data.id, data.lat, data.lon, data.city_name, data.weather, data.temp], (error, rows, fields) => {
-        if (error) {
-            //console.log(error);
-            //connection.end();
-        }
-        if (!error) {
-        console.log(rows);
-        rows.forEach(element => {
-        if(element.constructor == Array);
-        })
-        console.log(request.body);
-        //const data = request.body;
-        const timestamp = Date.now();
-        data.timestamp = timestamp;
-        response.json(data);
-        console.log('Success');
-        //connection.end();
-        }    
-    })
-} catch (error) {
-    var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?; \
-    CALL dataAddOrEdit(@id,@lat,@lon,@city_name,@weather,@temp);";
-    connection.query(sql, [data.id, data.lat, data.lon, data.city_name, data.weather, data.temp], (error, rows, fields) => {
-        if (error) {
-            //console.log(error);
-            //connection.end();
-        }
-        if (!error) {
-        console.log(rows);
-        rows.forEach(element => {
-        if(element.constructor == Array);
-        })
-        console.log(request.body);
-        //const data = request.body;
-        const timestamp = Date.now();
-        data.timestamp = timestamp;
-        response.json(data);
-        console.log('Success');
-        //connection.end();
-        }    
-    })
-}
-});
 
             //connection.end();
     /*

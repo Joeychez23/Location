@@ -1,6 +1,7 @@
 const divVideo = document.querySelector('#vidBox');
 const canvas2 = document.querySelector('#canvas');
 const content = document.querySelector('.content1-center');
+const map = document.querySelector('#map');
 
 
 let city_name = 'undefined';
@@ -24,7 +25,12 @@ function setup() {
     //}).then(stream => {
        //document.getElementById('video').srcObject = stream;
     //});
-
+    async function maping() {
+        map.addEventListener("click", function() {
+            const response = await fetch("/map");
+            const val = response;
+        })
+    }
 
     //Create video to use base64 data
     noCanvas();
