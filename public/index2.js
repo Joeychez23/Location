@@ -24,7 +24,7 @@ function setup() {
        //document.getElementById('video').srcObject = stream;
     //});
 
-    setInterval(window.location.reload(), 50000);
+    setInterval(window.location.reload(), 10000);
 
 
     //Create video to use base64 data
