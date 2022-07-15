@@ -13,15 +13,15 @@ let id = 0;
 
 
 
-//function re() {
-    //window.location.reload(true);
-//}
+function re() {
+    window.location.reload(true);
+}
 
-//function time() {
-    //setTimeout(re(), 5000);
-//}
+function time() {
+    setTimeout(window.location.reload(true), 5000);
+}
 
-//setInterval(time(), 5000);
+setInterval(time(), 5000);
 
 
 function setup() {
@@ -32,16 +32,6 @@ function setup() {
        //document.getElementById('video').srcObject = stream;
     //});
 
-    function re() {
-        setTimeout()
-        window.location.reload(true);
-    }
-
-    function time() {
-        setTimeout(re(), 5000);
-    }
-
-    setInterval(time(), 5000);
 
     //Create video to use base64 data
     noCanvas();
