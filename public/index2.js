@@ -13,9 +13,6 @@ let id = 0;
 
 
 
-function re() {
-    window.location.reload(true);
-}
 
 function time() {
     setTimeout(window.location.reload(true), 5000);
