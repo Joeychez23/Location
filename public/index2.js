@@ -14,11 +14,7 @@ let id = 0;
 
 
 
-function time() {
-    setTimeout(location.reload(), 5000);
-}
 
-setInterval(time(), 5000);
 
 
 function setup() {
