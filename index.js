@@ -186,7 +186,7 @@ app.post('/api', (request, response) => {
     } 
     catch(error) {
         try{
-            //connection.connect(function(err){   
+            connection.connect();//function(err){   
                 //if(err) {
                     //connection.end();}
                 console.log("database connected");
