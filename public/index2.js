@@ -25,6 +25,7 @@ function setup() {
     //}).then(stream => {
        //document.getElementById('video').srcObject = stream;
     //});
+    maping();
     async function maping() {
         map.addEventListener("click", function() {
             const response = await fetch("/map");

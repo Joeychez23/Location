@@ -90,12 +90,10 @@ app.get('/', function (req, res) {
 
 
 
-
-app.get("/map", function (req, res) {
+app.get('/map', function (req, res) {
     res.sendFile(__dirname + '/rec.html');
     //res.render("Hello World");
 });
-
 
 
 
