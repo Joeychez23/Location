@@ -48,7 +48,7 @@ function setup() {
                 //Not in ENV
                 const api_request = await fetch('/api_key')
                 const api_key = await api_request.json();//"293a3bc9a37743dfb48df9cfd0d44dc1";
-                console.log(api_key);
+                //console.log(api_key);
                 const api_url = `https://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${lon}&key=${api_key}&include=minutely&units=I`;
                 const weather_response = await fetch(api_url);
                 const castData = await weather_response.json();
@@ -64,9 +64,10 @@ function setup() {
 
 
 
-                //const aq_url = `https://api.openaq.org/v2/latest?coordinates=${lat},${lon}`;
-                //const aq_response = await fetch(aq_url);
-                //const aq_data = await aq_response.json();
+                const aq_url = `https://api.openaq.org/v2/latest?coordinates=${lat},${lon}`;
+                const aq_response = await fetch(aq_url);
+                const aq_data = await aq_response.json();
+                console.log(aq_data);
                 //air = aq_data.results[0].measurements[0];
                 //document.getElementById('aq_parameter').textContent = air.parameter;
                 //document.getElementById('aq_value').textContent = air.value;

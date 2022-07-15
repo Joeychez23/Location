@@ -9,7 +9,7 @@ const port = process.env.PORT || 3000;
 
 //heroku logs --tail
 
-
+//weather
 const api_key = "293a3bc9a37743dfb48df9cfd0d44dc1";
 
 app.use(express.static('public'));
@@ -95,9 +95,9 @@ app.get('/', function (req, res) {
 
 
 app.get('/api_key', (request, response) => {
-    console.log(api_key);
+    //console.log(api_key);
     const data = api_key;
-    console.log(data);
+    //console.log(data);
     response.json(data);
 });
 
