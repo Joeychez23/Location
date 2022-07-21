@@ -84,9 +84,9 @@ function setup() {
                 //document.getElementById('aq_date').textContent = air.lastUpdated;
 
                 
-                media.loadPixels();
-                const image64 = media.canvas.toDataURL();
-                data.image64 = image64;
+                //media.loadPixels();
+                //const image64 = media.canvas.toDataURL();
+                //data.image64 = image64;
 
 
 
