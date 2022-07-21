@@ -89,21 +89,23 @@ function setup() {
                 //document.getElementById('aq_units').textContent = air.unit;
                 //document.getElementById('aq_date').textContent = air.lastUpdated;
 
+
+
+
+                const submit = document.getElementById('subData').textContent;
+                submit.addEventListener("click", function() {
+                    media.loadPixels();
+                    const image64 = media.canvas.toDataURL();
+                    console.log(image64);
+                })
                 
-                media.loadPixels();
-                const image64 = media.canvas.toDataURL();
-                //data.image64 = image64;
-
-
-
-                console.log(image64);
                 const data = {id, lat, lon, city_name, weather, temp, air}; //, name, image64};
                 const options = {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json' 
-                },
-                body: JSON.stringify(data)
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json' 
+                    },
+                    body: JSON.stringify(data)
         
                 };
                 console.log(data);
