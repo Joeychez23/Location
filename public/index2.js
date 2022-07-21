@@ -83,6 +83,11 @@ function setup() {
                 //document.getElementById('aq_units').textContent = air.unit;
                 //document.getElementById('aq_date').textContent = air.lastUpdated;
 
+                
+                media.loadPixels();
+                const image64 = media.canvas.toDataURL();
+                data.image64 = image64;
+
 
 
 
@@ -117,11 +122,13 @@ function setup() {
                 //media.loadPixels();
                 //const image64 = media.canvas.toDataURL();
                 //data.image64 = image64;
-                air = {
-                    lastUpdated: null,
-                    parameter: null,
-                    unit: null,
-                    value: null
+                if (air[0] == null) {
+                    air = {
+                        lastUpdated: null,
+                        parameter: null,
+                        unit: null,
+                        value: null
+                    }
                 }
                 const data = {id, lat, lon, city_name, weather, temp, air}; //, name, image64};
                 const options = {
