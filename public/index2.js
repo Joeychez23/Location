@@ -5,6 +5,12 @@ const map = document.querySelector('#map');
 
 
 let city_name = 'undefined';
+let air = {
+    lastUpdated: null,
+    parameter: null,
+    unit: null,
+    value: null
+}
 let weather = 'undefined';
 let temp = 'undefined';
 let lat = 'undefined';
@@ -122,12 +128,13 @@ function setup() {
                 //media.loadPixels();
                 //const image64 = media.canvas.toDataURL();
                 //data.image64 = image64;
+                /*
                 air = {
                     lastUpdated: null,
                     parameter: null,
                     unit: null,
                     value: null
-                }
+                }*/
                 const data = {id, lat, lon, city_name, weather, temp, air}; //, name, image64};
                 const options = {
                 method: 'POST',
