@@ -95,21 +95,36 @@ function setup() {
 
 
                 submit.addEventListener("click", async function() {
-                    media.loadPixels();
-                    const image64 = media.canvas.toDataURL();
-                    console.log(image64);
-                    const data = {id, lat, lon, city_name, weather, temp, air}; //, name, image64};
-                    const options = {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json' 
-                        },
-                        body: JSON.stringify(data)
-        
-                    };
-                    console.log(data);
-                    const response = await fetch('/api', options);
-                    const db_val = await response.json();
+                    try {
+                        media.loadPixels();
+                        const image64 = media.canvas.toDataURL();
+                        console.log(image64);
+                        const data = {id, lat, lon, city_name, weather, temp, air}; //, name, image64};
+                        const options = {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json' 
+                            },
+                            body: JSON.stringify(data)
+            
+                        };
+                        console.log(data);
+                        const response = await fetch('/api', options);
+                        const db_val = await response.json();
+                    } catch(error) {
+                        const data = {id, lat, lon, city_name, weather, temp, air}; //, name, image64};
+                        const options = {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json' 
+                            },
+                            body: JSON.stringify(data)
+            
+                        };
+                        console.log(data);
+                        const response = await fetch('/api', options);
+                        const db_val = await response.json();
+                    }
                 })
                 
                 /*
