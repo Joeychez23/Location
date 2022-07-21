@@ -94,7 +94,7 @@ function setup() {
 
 
 
-                submit.addEventListener("click", function() {
+                submit.addEventListener("click", async function() {
                     media.loadPixels();
                     const image64 = media.canvas.toDataURL();
                     console.log(image64);
