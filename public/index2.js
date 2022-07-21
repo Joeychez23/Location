@@ -20,11 +20,11 @@ let id = 0;
 
 function setup() {
     //Create video in the element for client screen
-    //navigator.mediaDevices.getUserMedia({
-        //video: true
-    //}).then(stream => {
-       //document.getElementById('video').srcObject = stream;
-    //});
+    navigator.mediaDevices.getUserMedia({
+        video: true
+    }).then(stream => {
+       document.getElementById('video').srcObject = stream;
+    });
 
     //Create video to use base64 data
     noCanvas();
