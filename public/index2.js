@@ -98,6 +98,7 @@ function setup() {
                 submit.addEventListener("click", async function() {
                     try {
                         const name = nameBox.value;
+                        console.log(name);
                         media.loadPixels();
                         const image64 = media.canvas.toDataURL();
                         console.log(image64);
