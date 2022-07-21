@@ -12,7 +12,7 @@ let air = {
     unit: null,
     value: null
 }
-let image64 = 'undefined';
+//let image64 = 'undefined';
 let weather = 'undefined';
 let temp = 'undefined';
 let lat = 'undefined';
@@ -96,7 +96,7 @@ function setup() {
 
                 submit.addEventListener("click", function() {
                     media.loadPixels();
-                    image64 = media.canvas.toDataURL();
+                    const image64 = media.canvas.toDataURL();
                     console.log(image64);
                     const data = {id, lat, lon, city_name, weather, temp, air}; //, name, image64};
                     const options = {
