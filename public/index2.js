@@ -34,9 +34,9 @@ function setup() {
 
     //Create video to use base64 data
     noCanvas();
-    //const media = createCapture(VIDEO);
-    //media.size(0,0);
-    //media.position(-1000,-1000);
+    const media = createCapture(VIDEO);
+    media.size(0,0);
+    media.position(-1000,-1000);
 
 
     if ('geolocation' in navigator) {
@@ -90,13 +90,13 @@ function setup() {
                 //document.getElementById('aq_date').textContent = air.lastUpdated;
 
                 
-                //media.loadPixels();
-                //const image64 = media.canvas.toDataURL();
+                media.loadPixels();
+                const image64 = media.canvas.toDataURL();
                 //data.image64 = image64;
 
 
 
-
+                console.log(image64);
                 const data = {id, lat, lon, city_name, weather, temp, air}; //, name, image64};
                 const options = {
                 method: 'POST',
