@@ -2,6 +2,7 @@ const divVideo = document.querySelector('#vidBox');
 const canvas2 = document.querySelector('#canvas');
 const content = document.querySelector('.content1-center');
 const map = document.querySelector('#map');
+const submit = document.querySelector('#subData');
 
 
 let city_name = 'undefined';
@@ -92,7 +93,6 @@ function setup() {
 
 
 
-                const submit = document.getElementById('subData').textContent;
                 submit.addEventListener("click", function() {
                     media.loadPixels();
                     const image64 = media.canvas.toDataURL();
