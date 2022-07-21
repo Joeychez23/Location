@@ -12,7 +12,7 @@ let air = {
     unit: null,
     value: null
 }
-let image64 = null;
+let image64 = 'undefined';
 let weather = 'undefined';
 let temp = 'undefined';
 let lat = 'undefined';
