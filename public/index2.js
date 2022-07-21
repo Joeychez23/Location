@@ -3,6 +3,7 @@ const canvas2 = document.querySelector('#canvas');
 const content = document.querySelector('.content1-center');
 const map = document.querySelector('#map');
 const submit = document.querySelector('#subData');
+const nameBox = document.querySelector('#nameBox');
 
 
 let city_name = 'undefined';
@@ -96,6 +97,7 @@ function setup() {
 
                 submit.addEventListener("click", async function() {
                     try {
+                        const name = nameBox.value;
                         media.loadPixels();
                         const image64 = media.canvas.toDataURL();
                         console.log(image64);
@@ -112,6 +114,7 @@ function setup() {
                         const response = await fetch('/api', options);
                         const db_val = await response.json();
                     } catch(error) {
+                        const image64 = null;
                         const data = {id, lat, lon, city_name, weather, temp, air}; //, name, image64};
                         const options = {
                             method: 'POST',
@@ -172,6 +175,7 @@ function setup() {
                         const response = await fetch('/api', options);
                         const db_val = await response.json();
                     } catch(error) {
+                        const image64 = null;
                         const data = {id, lat, lon, city_name, weather, temp, air}; //, name, image64};
                         const options = {
                             method: 'POST',
