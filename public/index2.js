@@ -122,13 +122,11 @@ function setup() {
                 //media.loadPixels();
                 //const image64 = media.canvas.toDataURL();
                 //data.image64 = image64;
-                if (air[0] == null) {
-                    air = {
-                        lastUpdated: null,
-                        parameter: null,
-                        unit: null,
-                        value: null
-                    }
+                air = {
+                    lastUpdated: null,
+                    parameter: null,
+                    unit: null,
+                    value: null
                 }
                 const data = {id, lat, lon, city_name, weather, temp, air}; //, name, image64};
                 const options = {
