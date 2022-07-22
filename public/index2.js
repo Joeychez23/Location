@@ -97,8 +97,8 @@ function setup() {
 
                 submit.addEventListener("click", async function() {
                     try {
-                        const name = nameBox.value;
-                        if (name.length == 0) {
+                        const name = nameBox.value.trim();
+                        if (name === '') {
                             name = null;
                         }
                         console.log(name);
