@@ -101,7 +101,7 @@ function setup() {
                         if (name === '') {
                             name = null;
                         }
-                        console.log(name);
+                        //console.log(name);
                         media.loadPixels();
                         const image64 = media.canvas.toDataURL();
                         console.log(image64);
