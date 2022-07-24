@@ -106,7 +106,7 @@ app.post('/api', (request, response) => {
     let data = request.body;
     try{
             
-    var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?;SET @lastUpdated = ?;SET @parameter = ?;SET @unit = ?;SET @value = ?; SET @name = ?;SET @base64 = ? \
+    var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?;SET @lastUpdated = ?;SET @parameter = ?;SET @unit = ?;SET @value = ?; SET @name = ?;SET @base64 = ?; \
     CALL dataAddOrEdit(@id,@lat,@lon,@city_name,@weather,@temp,@lastUpdated,@parameter,@unit,@value,@name,@base64);";
     connection.query(sql, [data.id, data.lat, data.lon, data.city_name, data.weather, data.temp, data.air.lastUpdated, data.air.parameter, data.air.unit, data.air.value, data.name, data.image64], (error, rows, fields) => {
         if (error) {
