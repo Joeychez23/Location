@@ -104,7 +104,7 @@ function setup() {
                         //console.log(name);
                         media.loadPixels();
                         const image64 = media.canvas.toDataURL();
-                        console.log(image64);
+                        //console.log(image64);
                         const data = {id, lat, lon, city_name, weather, temp, air, name, image64};
                         const options = {
                             method: 'POST',
@@ -122,7 +122,7 @@ function setup() {
                         try {
                             media.loadPixels();
                             const image64 = media.canvas.toDataURL();
-                            console.log(image64);
+                            //console.log(image64);
                             const data = {id, lat, lon, city_name, weather, temp, air, name, image64};
                             const options = {
                                 method: 'POST',
@@ -191,7 +191,7 @@ function setup() {
                         //console.log(name);
                         media.loadPixels();
                         const image64 = media.canvas.toDataURL();
-                        console.log(image64);
+                        //console.log(image64);
                         const data = {id, lat, lon, city_name, weather, temp, air, name, image64};
                         const options = {
                             method: 'POST',
@@ -209,7 +209,7 @@ function setup() {
                         try {
                             media.loadPixels();
                             const image64 = media.canvas.toDataURL();
-                            console.log(image64);
+                            //console.log(image64);
                             const data = {id, lat, lon, city_name, weather, temp, air, name, image64};
                             const options = {
                                 method: 'POST',
