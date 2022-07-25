@@ -23,7 +23,7 @@ let connection = mysql.createConnection({
     password: '084c2219',
     database: 'heroku_e723bcfa51ec52b',
     multipleStatements: true,
-    insecureAuth : true
+    insecureAuth: true
 });
 
 
@@ -128,7 +128,7 @@ app.post('/api', (request, response) => {
         }    
     })
 } catch (error) {
-    var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?; SET @name = ?;SET @base64 = ? \
+    var sql = "SET @id = ?;SET @lat = ?;SET @lon = ?;SET @city_name = ?;SET @weather = ?;SET @temp = ?; SET @name = ?;SET @base64 = ?; \
     CALL dataAddOrEdit(@id,@lat,@lon,@city_name,@weather,@temp,@name,@base64);";
     connection.query(sql, [data.id, data.lat, data.lon, data.city_name, data.weather, data.temp, data.name, data.image64], (error, rows, fields) => {
         if (error) {
