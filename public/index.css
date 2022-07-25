@@ -252,6 +252,8 @@ body {
  .container-fluid {
     height: 100%;
     background-color: cyan;
+    padding-left: 60px;
+    padding-top: 60px;
  }
 
  body {
@@ -273,9 +275,6 @@ body {
 
 
 
-.container-fluid {
-   padding-left: 60px;
-}
 
 
 
